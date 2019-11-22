@@ -40,3 +40,9 @@ POST endpoint: http://localhost:8080/kie-server/services/rest/server/containers/
 * Alice performs task
 * Tim performs task
 * Peter performs task
+* Payment processing
+POST endpoint: http://localhost:8080/kie-server/services/rest/server/containers/Efficient-Solutions_1.0.0-SNAPSHOT/cases/instances/{caseId}/caseFile/cPaymentProcessed
+[source,JSON]
+----
+true
+----
