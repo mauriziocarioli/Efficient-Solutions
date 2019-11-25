@@ -82,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574696727665</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="readme">
+      <created>1574696940352</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1574696940352</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,8 +108,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="..." />
     <MESSAGE value="Merge branch 'master' of ssh://localhost:8001/Energy/Efficient-Solutions" />
-    <MESSAGE value="readme" />
     <MESSAGE value="add users script" />
-    <option name="LAST_COMMIT_MESSAGE" value="add users script" />
+    <MESSAGE value="readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme" />
   </component>
 </project>
