@@ -1,11 +1,93 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_7B2F780C-CAD5-44EA-8E0B-CCFB6CC2117D" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D7EF04F0-9900-4329-8475-A48499C97D03" name="AssignTechnicalAuthority" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_7B2F780C-CAD5-44EA-8E0B-CCFB6CC2117D">
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_7B2F780C-CAD5-44EA-8E0B-CCFB6CC2117D" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_D7EF04F0-9900-4329-8475-A48499C97D03" name="AssignTechnicalAuthority" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://energy.com/dmn/_7B2F780C-CAD5-44EA-8E0B-CCFB6CC2117D">
   <dmn:extensionElements/>
+  <dmn:decision id="_1473A9CB-1D2F-4DEB-8DC5-53DA776FF326" name="Technical Authority">
+    <dmn:extensionElements/>
+    <dmn:question>Who is the technical authority for this project?</dmn:question>
+    <dmn:allowedAnswers>Albert,Alfred</dmn:allowedAnswers>
+    <dmn:variable id="_B60E2949-CEE2-4B40-B62B-7541A0FCD24E" name="Technical Authority" typeRef="string"/>
+    <dmn:informationRequirement id="_B2482E5D-3EFD-47B5-BA05-51CBB824ACBD">
+      <dmn:requiredInput href="#_B8AC758B-ACA4-4038-97F7-F6C107D39FA3"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_DB0C8EBB-DE58-40F6-9ACD-7EF71384AC37" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_668B90C6-B1BC-4D2A-BF21-7FFB00F4BD5F">
+        <dmn:inputExpression id="_AEE66BC7-95C1-4776-9EB4-FFCF4E46FECC" typeRef="string">
+          <dmn:text>Project Definition</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_6E2F1DF5-99DB-48AE-A536-C6FAF5F18A8C" typeRef="string"/>
+      <dmn:rule id="_AE3F61BA-E413-4D6F-8DC7-3D650892ED54">
+        <dmn:inputEntry id="_27CE7F9B-EC41-42A7-B9D3-4BBF7885F628">
+          <dmn:text>"Installation of cooling system in industrial process"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_7C16F398-9763-4E17-A105-AC4E5EBE8BB3">
+          <dmn:text>"Albert"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_82ABC9B6-4D6B-4AA4-83DF-28BD88E8006D">
+        <dmn:inputEntry id="_13087B41-2702-4758-9209-BC614881B5F4">
+          <dmn:text>"Installation of pumps with VFDs"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_D762AE33-436F-4507-B30F-548E09E84904">
+          <dmn:text>"Albert"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_C7761F21-4F63-413E-9992-9DD8954A40EF">
+        <dmn:inputEntry id="_0A09E46E-EA19-482E-8BB6-C16946A008B8">
+          <dmn:text>"Installation of LED light fixtures and adaptive controls"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_31F325D3-A038-4974-B014-F4B90121001A">
+          <dmn:text>"Alfred"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_BD6B62DE-1E99-468D-8561-658D19FF593E">
+        <dmn:inputEntry id="_D8B2485E-00E1-4253-858C-1F26DF7FDAE9">
+          <dmn:text>"Installation of LED light fixtures and controls"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_6C279E82-EECB-4FD8-815C-78C9E34B9466">
+          <dmn:text>"Alfred"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:inputData id="_B8AC758B-ACA4-4038-97F7-F6C107D39FA3" name="Project Definition">
+    <dmn:extensionElements/>
+    <dmn:variable id="_7EBB3C36-B91C-45B5-8982-0187E150E34D" name="Project Definition" typeRef="string"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <di:extension>
-        <kie:ComponentsWidthsExtension/>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_DB0C8EBB-DE58-40F6-9ACD-7EF71384AC37">
+            <kie:width>50.0</kie:width>
+            <kie:width>488.0</kie:width>
+            <kie:width>173.0</kie:width>
+            <kie:width>100.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
+      <dmndi:DMNShape id="dmnshape-_B8AC758B-ACA4-4038-97F7-F6C107D39FA3" dmnElementRef="_B8AC758B-ACA4-4038-97F7-F6C107D39FA3" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="111" y="99" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_1473A9CB-1D2F-4DEB-8DC5-53DA776FF326" dmnElementRef="_1473A9CB-1D2F-4DEB-8DC5-53DA776FF326" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="291" y="99" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_B2482E5D-3EFD-47B5-BA05-51CBB824ACBD" dmnElementRef="_B2482E5D-3EFD-47B5-BA05-51CBB824ACBD">
+        <di:waypoint x="211" y="124"/>
+        <di:waypoint x="291" y="124"/>
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </dmn:definitions>
