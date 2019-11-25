@@ -650,7 +650,7 @@
           <drools:metaValue><![CDATA[Verification not required]]></drools:metaValue>
         </drools:metaData>
         <drools:onExit-script scriptFormat="http://www.java.com/java">
-          <drools:script><![CDATA[kcontext.setVariable("caseFile_cAuditPassed",true);]]></drools:script>
+          <drools:script><![CDATA[System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"); kcontext.setVariable("caseFile_cAuditPassed",true);]]></drools:script>
         </drools:onExit-script>
         <drools:metaData name="customAutoStart">
           <drools:metaValue><![CDATA[true]]></drools:metaValue>
