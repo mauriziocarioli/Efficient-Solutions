@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e011450d-c0b6-482e-a4d8-81e8b55764b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/sh/add-users.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/readme.adoc" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574449898197</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add users script">
+      <created>1574696727665</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1574696727665</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,6 +102,7 @@
     <MESSAGE value="..." />
     <MESSAGE value="Merge branch 'master' of ssh://localhost:8001/Energy/Efficient-Solutions" />
     <MESSAGE value="readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme" />
+    <MESSAGE value="add users script" />
+    <option name="LAST_COMMIT_MESSAGE" value="add users script" />
   </component>
 </project>

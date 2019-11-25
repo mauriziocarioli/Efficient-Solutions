@@ -8,16 +8,18 @@ POST endpoint: http://localhost:8080/kie-server/services/rest/server/containers/
 ----
 {
     "case-data": {
-        "cProjectAmount": 25000.00
+        "cProjectAmount": 25000.00,
+        "cProjectType": "Institutional",
+        "cProjectDefinition": "Installation of pumps with VFDs"
     },
     "case-user-assignments": {},
     "case-group-assignments": {}
 }
 ----
 == Happy path
-* Mandy performs task
-* Albert performs task checking that documentation is needed
-* Submit documentation with
+* Myriam performs task
+* Albert performs task and check out that documentation is needed
+* Submit documentation with:
 POST endpoint: http://localhost:8080/kie-server/services/rest/server/containers/Efficient-Solutions_1.0.0-SNAPSHOT/cases/instances/{caseId}}/caseFile/cDocumentation
 [source,JSON]
 ----
@@ -38,9 +40,9 @@ POST endpoint: http://localhost:8080/kie-server/services/rest/server/containers/
 }
 ----
 * Alice performs task
-* Tim performs task
+* Tom performs task
 * Peter performs task
-* Payment processing
+* Send payment processed event:
 POST endpoint: http://localhost:8080/kie-server/services/rest/server/containers/Efficient-Solutions_1.0.0-SNAPSHOT/cases/instances/{caseId}/caseFile/cPaymentProcessed
 [source,JSON]
 ----
