@@ -1,11 +1,85 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_228FAA76-D05B-4E43-B5FE-097F85AB9CEC" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_95E96DAD-6081-451C-AFD5-A1D67D7A3E4E" name="AssignAdministrativeManager" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_228FAA76-D05B-4E43-B5FE-097F85AB9CEC">
   <dmn:extensionElements/>
+  <dmn:inputData id="_15D5F9B2-6D0F-4B8D-816B-B8B72C5B91AF" name="Project Type">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0F919BCA-3273-46C3-9E66-B52D409075FD" name="Project Type" typeRef="string"/>
+  </dmn:inputData>
+  <dmn:decision id="_D3E35A16-98D7-4609-BAE4-3E337D3251F9" name="Administrative Manager">
+    <dmn:extensionElements/>
+    <dmn:question>Who is the administrative manager for the project?</dmn:question>
+    <dmn:allowedAnswers>Mandy,Myriam</dmn:allowedAnswers>
+    <dmn:variable id="_80047470-EC35-4BB6-9426-7D0F351033B8" name="Administrative Manager" typeRef="string"/>
+    <dmn:informationRequirement id="_7346E3E8-B95F-4CB6-97D6-C3BF1A5DD6E1">
+      <dmn:requiredInput href="#_15D5F9B2-6D0F-4B8D-816B-B8B72C5B91AF"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_F5177501-A2AC-479E-B81D-2A1D715F75DE" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_BC109914-8464-423F-9C33-E373A102C0AC">
+        <dmn:inputExpression id="_E6BD0912-A212-4B68-A5B9-265AE8C19355" typeRef="string">
+          <dmn:text>Project Type</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_82CBEBFB-10C7-4343-8B2D-10E1329BF916" typeRef="string"/>
+      <dmn:rule id="_DC75AF8D-250E-4C71-92BA-55B5FEBFA851">
+        <dmn:inputEntry id="_A3B39695-4E58-46C6-9C29-ACC67EC061B0">
+          <dmn:text>"Industrial"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_B897DE52-1259-485F-BA38-330D259775C1">
+          <dmn:text>"Myriam"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_F5182726-022F-4CFC-8943-0028015A76CF">
+        <dmn:inputEntry id="_5F97A298-F199-4147-A5D4-55150F1939ED">
+          <dmn:text>"Commercial"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_79E9C5A2-6FB0-455F-BDDF-3CEB90C97013">
+          <dmn:text>"Mandy"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_4D3AE60F-2760-4DAE-A5EC-FB090859207A">
+        <dmn:inputEntry id="_ABACD8C1-C98D-4899-95E8-574AC47CE7B0">
+          <dmn:text>"Institutional"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_FA98FE5C-3727-404E-A61D-3FE6A564EBE4">
+          <dmn:text>"Myriam"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <di:extension>
-        <kie:ComponentsWidthsExtension/>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_F5177501-A2AC-479E-B81D-2A1D715F75DE">
+            <kie:width>50.0</kie:width>
+            <kie:width>429.0</kie:width>
+            <kie:width>186.0</kie:width>
+            <kie:width>100.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
+      <dmndi:DMNShape id="dmnshape-_15D5F9B2-6D0F-4B8D-816B-B8B72C5B91AF" dmnElementRef="_15D5F9B2-6D0F-4B8D-816B-B8B72C5B91AF" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="105" y="100" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_D3E35A16-98D7-4609-BAE4-3E337D3251F9" dmnElementRef="_D3E35A16-98D7-4609-BAE4-3E337D3251F9" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="285" y="100" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_7346E3E8-B95F-4CB6-97D6-C3BF1A5DD6E1" dmnElementRef="_7346E3E8-B95F-4CB6-97D6-C3BF1A5DD6E1">
+        <di:waypoint x="205" y="125"/>
+        <di:waypoint x="285" y="125"/>
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </dmn:definitions>
