@@ -1,11 +1,77 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_FD6061A3-3C61-4F52-9DBD-FD6E3E3F2362" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_1C82F455-3A82-40FD-BCB2-4CF347A119C0" name="AssignTechnicalApprover" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_FD6061A3-3C61-4F52-9DBD-FD6E3E3F2362">
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_FD6061A3-3C61-4F52-9DBD-FD6E3E3F2362" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_1C82F455-3A82-40FD-BCB2-4CF347A119C0" name="AssignTechnicalApprover" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://energy.com/dmn/_FD6061A3-3C61-4F52-9DBD-FD6E3E3F2362">
   <dmn:extensionElements/>
+  <dmn:decision id="_8B8C9490-7FF9-4390-A4A4-59A98668E9A2" name="Technical Approver">
+    <dmn:extensionElements/>
+    <dmn:question>Who is the technical approver?</dmn:question>
+    <dmn:allowedAnswers>Tim,Tom</dmn:allowedAnswers>
+    <dmn:variable id="_77810D20-6D99-4008-81A4-D3E1A3916093" name="Technical Approver" typeRef="string"/>
+    <dmn:informationRequirement id="_A6C7C927-7450-4952-9C0F-101FF73A5EB5">
+      <dmn:requiredInput href="#_269FFEBA-53A7-45FA-B02D-75ADE8E507E6"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_B151DDBF-EA0B-49E6-8639-179158A6A892" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_95E2D6B2-3C54-4107-BF41-AF6597233133">
+        <dmn:inputExpression id="_89CFCD5A-05C1-40F3-89A8-3EBB66410907" typeRef="number">
+          <dmn:text>Project Amount</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_54A2ED3A-7C33-4553-9699-505EF367D724" typeRef="string"/>
+      <dmn:rule id="_9716F8AD-04A9-405C-9C0F-6EA2039F244C">
+        <dmn:inputEntry id="_27984BA7-C7C6-4E6C-B521-02041AA67F1E">
+          <dmn:text>&lt; 100000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_63205F4A-9686-40C2-93E2-88BAC6B4E403">
+          <dmn:text>"Tom"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_C32ADFCB-19C1-4B6F-B598-43CC1CFC7B5B">
+        <dmn:inputEntry id="_C2D52AFA-9757-47FD-A333-35893647E67A">
+          <dmn:text>&gt;= 100000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_470B6993-1045-426B-AFA1-2C1DC462A5CC">
+          <dmn:text>"Tim"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:inputData id="_269FFEBA-53A7-45FA-B02D-75ADE8E507E6" name="Project Amount">
+    <dmn:extensionElements/>
+    <dmn:variable id="_814D65AB-9437-47BE-A575-A797EB8E4C08" name="Project Amount" typeRef="number"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <di:extension>
-        <kie:ComponentsWidthsExtension/>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_B151DDBF-EA0B-49E6-8639-179158A6A892">
+            <kie:width>50.0</kie:width>
+            <kie:width>200.0</kie:width>
+            <kie:width>161.0</kie:width>
+            <kie:width>100.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
+      <dmndi:DMNShape id="dmnshape-_269FFEBA-53A7-45FA-B02D-75ADE8E507E6" dmnElementRef="_269FFEBA-53A7-45FA-B02D-75ADE8E507E6" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="150" y="117" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_8B8C9490-7FF9-4390-A4A4-59A98668E9A2" dmnElementRef="_8B8C9490-7FF9-4390-A4A4-59A98668E9A2" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="330" y="117" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_A6C7C927-7450-4952-9C0F-101FF73A5EB5" dmnElementRef="_A6C7C927-7450-4952-9C0F-101FF73A5EB5">
+        <di:waypoint x="250" y="142"/>
+        <di:waypoint x="330" y="142"/>
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </dmn:definitions>
