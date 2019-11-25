@@ -1,11 +1,77 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_0FDB9C3A-7B0C-440D-8EAA-EA8FB51F6CD5" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_1FB63C11-4B79-4F57-84BE-D1A48674332D" name="AssignAuditor" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_0FDB9C3A-7B0C-440D-8EAA-EA8FB51F6CD5">
   <dmn:extensionElements/>
+  <dmn:inputData id="_692A6B05-4289-4026-BAD1-5048812A2EEA" name="Project Amount">
+    <dmn:extensionElements/>
+    <dmn:variable id="_95011971-91EC-4742-AB8C-AD3E7EA15D3D" name="Project Amount" typeRef="number"/>
+  </dmn:inputData>
+  <dmn:decision id="_A204FB64-94F1-4911-B453-EEEDC721D5F4" name="Auditor">
+    <dmn:extensionElements/>
+    <dmn:question>Who is the auditor for this project?</dmn:question>
+    <dmn:allowedAnswers>Alice,Ann</dmn:allowedAnswers>
+    <dmn:variable id="_69AC5A99-2A23-4D39-9527-41B55741AEA8" name="Auditor" typeRef="string"/>
+    <dmn:informationRequirement id="_449CB92E-D1DF-47E1-9FC4-F0C91C57538A">
+      <dmn:requiredInput href="#_692A6B05-4289-4026-BAD1-5048812A2EEA"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_9B5B0496-153F-48A1-8227-0E866A5B453D" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_76D40BB7-1C77-489C-BC86-4A895AA7B0D7">
+        <dmn:inputExpression id="_0725DB6F-8D96-4855-9DDC-4B2EA8FE9A8C" typeRef="number">
+          <dmn:text>Project Amount</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_212442D8-7761-493D-8DD0-4FAFC7E7B59C" typeRef="string"/>
+      <dmn:rule id="_1AE77252-0ABC-4EE0-AEA6-63D16875FF3D">
+        <dmn:inputEntry id="_D123FEEB-9E8D-4D37-8B7C-86C9D5B38F01">
+          <dmn:text>&lt; 100000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_8BE68BD7-975F-442C-9887-BEFAD0963B2A">
+          <dmn:text>"Alice"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_B72B731D-C061-4622-9ECA-BF4E7EA746C1">
+        <dmn:inputEntry id="_842857C8-4D73-49A9-B3E5-D47E28BCB610">
+          <dmn:text>&gt;= 100000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_17FF5CFF-E62C-43E3-9AC3-0ED41A62A5E1">
+          <dmn:text>"Ann"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <di:extension>
-        <kie:ComponentsWidthsExtension/>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_9B5B0496-153F-48A1-8227-0E866A5B453D">
+            <kie:width>50.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>100.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
+      <dmndi:DMNShape id="dmnshape-_692A6B05-4289-4026-BAD1-5048812A2EEA" dmnElementRef="_692A6B05-4289-4026-BAD1-5048812A2EEA" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="113" y="112" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_A204FB64-94F1-4911-B453-EEEDC721D5F4" dmnElementRef="_A204FB64-94F1-4911-B453-EEEDC721D5F4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="293" y="112" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_449CB92E-D1DF-47E1-9FC4-F0C91C57538A" dmnElementRef="_449CB92E-D1DF-47E1-9FC4-F0C91C57538A">
+        <di:waypoint x="213" y="137"/>
+        <di:waypoint x="293" y="137"/>
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </dmn:definitions>
